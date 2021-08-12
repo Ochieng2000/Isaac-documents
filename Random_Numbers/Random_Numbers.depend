@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1626951352 source:c:\users\user\desktop\isaac documents\random_numbers\random.c
+	<stdio.h>
+	<stdlib.h>
+

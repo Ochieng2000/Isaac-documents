@@ -1,0 +1,80 @@
+function switchLanguage(lang) {
+      window.location.href = '../'+lang+'/'+urlTo;
+}
+
+
+function closeNav(divcssname)
+{
+	var x = document.getElementsByTagName('A');
+	for (var i=0;i<x.length;i++)
+	{
+		if (x[i].className == divcssname)
+			{
+			//alert("ok:"+divcssname);
+			x[i].style.display = 'none';
+			}
+	}
+}
+
+function openNav(divcssname)
+{
+	var x = document.getElementsByTagName('A');
+	for (var i=0;i<x.length;i++)
+	{
+		if (x[i].className == divcssname)
+			x[i].style.display = 'block';
+	}
+}
+
+
+
+	var urlTo="ev.php-URL_ID="+static_ko+"&URL_DO=DO_TOPIC&URL_SECTION="+static_section+".html";
+	
+	//Value by default:
+	if(typeof(setLanguage)=="undefined") {
+		var setLanguage="en,fr";
+	}
+
+        var arrayLanguageList=setLanguage.split(",");
+	var setLanguageFirst=0;
+	var displayToggleLanguage="";
+
+	var displayToggleLanguageEn="";
+	var displayToggleLanguageFr="";
+	var displayToggleLanguageEs="";
+
+
+	openNav("DL-languagebox-lat");
+
+	for(var loop=0;loop<arrayLanguageList.length; loop++){
+	  //put the separator.
+	    if(arrayLanguageList[loop]=="en" && static_langue != "en") {
+		if(setLanguageFirst++ >0) {
+	  	  displayToggleLanguage += ' - ';
+	        }
+		openNav("CSS-CS-UTILITIES-languages-english");
+		displayToggleLanguageEn='<a class="langlink" href="../en/'+urlTo+'">English</a>';
+		displayToggleLanguage += displayToggleLanguageEn;
+		}
+	    else if(arrayLanguageList[loop]=="fr" && static_langue != "fr") {
+		if(setLanguageFirst++ >0) {
+	  	  displayToggleLanguage += ' - ';
+	    	}
+		openNav("CSS-CS-UTILITIES-languages-francais");
+		displayToggleLanguageFr = '<a class="langlink" href="../fr/'+urlTo+'">Français</a>';
+                displayToggleLanguage += displayToggleLanguageFr;
+
+	    } 
+	    if(arrayLanguageList[loop]=="es" && static_langue != "es") {
+		if(setLanguageFirst++ >0) {
+	  	  	displayToggleLanguage += ' - ';
+	    	}
+		openNav("CSS-CS-UTILITIES-languages-espanol");
+		displayToggleLanguageEs += '<a class="langlink" href="../es/'+urlTo+'">Español</a>';
+                displayToggleLanguage += displayToggleLanguageEs;
+	    }
+	}
+
+	if(typeof(setNotDisplayToggleLanguage)=="undefined") {
+		document.write(displayToggleLanguage);
+	} 

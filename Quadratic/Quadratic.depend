@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1626684492 source:c:\users\user\desktop\isaac documents\max\quadratic.c
+	<stdio.h>
+	<math.h>
+
